@@ -8,7 +8,7 @@ import productRoutes from './routes/product.js'
 
 const app = express();
 app.use(express.json()); //Allows us to accept JSON data in the req.body
-// const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
     res.send('Backend is working as expected!'); // Send a response back to the client
 });
@@ -17,7 +17,7 @@ app.use("/api/products", productRoutes);
 
 
 // Start the server on port 3000
-app.listen(5000, () => {
+app.listen(port, () => {
     connectDB();
-    console.log("Server is running on http://localhost:5000");
+    console.log(`Server is running on http://localhost:${port}`);
 });
